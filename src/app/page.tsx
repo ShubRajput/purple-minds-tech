@@ -1,6 +1,8 @@
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Services } from '@/components/Services';
+import { Products } from '@/components/Products';
+import { Pricing } from '@/components/Pricing';
 import { Technologies } from '@/components/Technologies';
 import { Portfolio } from '@/components/Portfolio';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
@@ -19,6 +21,8 @@ export default async function Home() {
       <Hero />
       <About />
       <Services />
+      <Products />
+      <Pricing />
       <Technologies />
       <Portfolio projects={projectsData} />
       <WhyChooseUs />

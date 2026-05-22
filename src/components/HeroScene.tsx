@@ -35,7 +35,7 @@ function ParticleField({ count = 800 }: { count?: number }) {
       </bufferGeometry>
       <pointsMaterial
         size={0.08}
-        color="#a855f7"
+        color="#F29CB7"
         transparent
         opacity={0.6}
         sizeAttenuation
@@ -82,8 +82,8 @@ function InteractiveOrb() {
       <mesh ref={meshRef}>
         <icosahedronGeometry args={[1.2, 1]} />
         <meshStandardMaterial
-          color="#7B2FF7"
-          emissive="#7B2FF7"
+          color="#522A6F"
+          emissive="#522A6F"
           emissiveIntensity={0.3}
           wireframe
         />
@@ -104,13 +104,13 @@ function Scene({ mouse, isMobile }: { mouse: { x: number; y: number }; isMobile:
   return (
     <group ref={groupRef}>
       <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} color="#7B2FF7" intensity={1} />
-      <pointLight position={[-10, -10, 5]} color="#00d4ff" intensity={0.5} />
+      <pointLight position={[10, 10, 10]} color="#522A6F" intensity={1} />
+      <pointLight position={[-10, -10, 5]} color="#DDAAFF" intensity={0.5} />
       <Stars radius={50} depth={50} count={isMobile ? 800 : 2000} factor={2} saturation={0.5} fade speed={1} />
       <ParticleField count={isMobile ? 300 : 800} />
-      <GlowingOrb position={[4, 2, -5]} color="#7B2FF7" scale={1.5} />
-      <GlowingOrb position={[-5, -2, -3]} color="#00d4ff" scale={1} />
-      <GlowingOrb position={[2, -4, -2]} color="#a855f7" scale={0.8} />
+      <GlowingOrb position={[4, 2, -5]} color="#522A6F" scale={1.5} />
+      <GlowingOrb position={[-5, -2, -3]} color="#DDAAFF" scale={1} />
+      <GlowingOrb position={[2, -4, -2]} color="#F29CB7" scale={0.8} />
       <InteractiveOrb />
     </group>
   );

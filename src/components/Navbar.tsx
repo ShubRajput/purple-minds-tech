@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
+  { href: '#products', label: 'Products' },
+  { href: '#packages', label: 'Packages' },
   { href: '#technologies', label: 'Technologies' },
   { href: '#portfolio', label: 'Portfolio' },
   { href: '#why-us', label: 'Why Us' },
@@ -29,38 +31,45 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-strong py-3' : 'bg-transparent py-5'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300"
     >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="text-2xl font-display font-bold gradient-text">
-            Purple Minds
-          </span>
-          <span className="text-xl font-display font-semibold text-white/90">
-            Tech
+      <nav className={`container mx-auto px-6 py-3 flex items-center justify-between transition-all duration-300 rounded-2xl ${
+        scrolled 
+          ? 'glass-strong border border-white/5 shadow-glass' 
+          : 'bg-transparent border border-transparent'
+      }`}>
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <img
+            src="/logo.png"
+            alt="PurpleMinds Tech Logo"
+            className="w-9 h-9 object-contain group-hover:scale-105 transition-transform duration-300"
+          />
+          <span className="text-xl font-display font-extrabold text-white tracking-tight">
+            Purple Minds <span className="text-neon-violet font-semibold">Tech</span>
           </span>
         </Link>
 
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link, i) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-primary transition-colors relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-neon-blue group-hover:w-full transition-all duration-300" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Center floating nav capsule */}
+        <div className="hidden lg:flex items-center justify-center flex-grow max-w-xl mx-auto">
+          <ul className="flex items-center gap-1 bg-white/[0.02] backdrop-blur-md py-1.5 px-4 rounded-full border border-white/5 shadow-glass">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white transition-all relative group block whitespace-nowrap"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-primary to-neon-violet scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center">
           <Link
             href="#contact"
-            className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white font-medium text-sm transition-all hover:shadow-glow"
+            className="px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold text-xs tracking-wider uppercase transition-all hover:shadow-glow hover:translate-y-[-1px] duration-300"
           >
             Get Started
           </Link>
@@ -69,7 +78,7 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="md:hidden p-2 text-white"
+          className="lg:hidden p-2 text-white"
           onClick={() => setMobileOpen((o) => !o)}
         >
           <svg
@@ -103,14 +112,14 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong overflow-hidden"
+            className="lg:hidden mt-2 rounded-2xl glass-strong border border-white/5 overflow-hidden max-w-sm mx-auto"
           >
-            <ul className="container mx-auto px-4 py-4 flex flex-col gap-4">
+            <ul className="container mx-auto px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-2 text-slate-300 hover:text-primary"
+                    className="block py-2 text-sm font-semibold text-slate-300 hover:text-white"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
@@ -120,7 +129,7 @@ export function Navbar() {
               <li>
                 <Link
                   href="#contact"
-                  className="inline-block px-5 py-2.5 rounded-full bg-primary text-white font-medium"
+                  className="inline-block w-full text-center px-5 py-2.5 rounded-xl bg-primary text-white font-semibold text-sm"
                   onClick={() => setMobileOpen(false)}
                 >
                   Get Started

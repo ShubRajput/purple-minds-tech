@@ -32,6 +32,8 @@ function parseProjectsRows(rows: string[][]): SheetProject[] {
       type: row[1]?.trim() ?? '',
       description: row[2]?.trim() ?? '',
       imageUrl: row[3]?.trim() ?? '',
+      link: row[4]?.trim() || undefined,
+      tags: row[5] ? row[5].split(',').map((t) => t.trim()).filter(Boolean) : undefined,
     }))
     .filter((p) => p.name);
 }

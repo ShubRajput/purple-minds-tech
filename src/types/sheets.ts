@@ -3,6 +3,8 @@ export type SheetProject = {
   type: string;
   description: string;
   imageUrl: string;
+  link?: string;
+  tags?: string[];
 };
 
 export type SheetTestimonial = {

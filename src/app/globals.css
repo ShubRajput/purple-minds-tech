@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --primary: #7b2ff7;
-  --primary-dark: #5a1fc9;
-  --neon-blue: #00d4ff;
-  --neon-violet: #a855f7;
-  --dark-bg: #0a0a0f;
-  --dark-surface: #12121a;
-  --glass-bg: rgba(18, 18, 26, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --primary: #522A6F;
+  --primary-dark: #371C4B;
+  --neon-blue: #DDAAFF;
+  --neon-violet: #F29CB7;
+  --dark-bg: #222023;
+  --dark-surface: #19181A;
+  --glass-bg: rgba(25, 24, 26, 0.75);
+  --glass-border: rgba(250, 234, 221, 0.08);
 }
 
 * {
@@ -24,7 +24,11 @@ html {
 }
 
 body {
-  background: var(--dark-bg);
+  background-color: var(--dark-bg);
+  background-image: 
+    linear-gradient(to right, rgba(250, 234, 221, 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(250, 234, 221, 0.012) 1px, transparent 1px);
+  background-size: 80px 80px;
   color: #e2e8f0;
   min-height: 100vh;
   overflow-x: hidden;
@@ -40,7 +44,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--primary), var(--neon-blue));
+  background: linear-gradient(180deg, var(--primary), var(--neon-violet));
   border-radius: 4px;
 }
 
@@ -57,15 +61,15 @@ body {
 }
 
 .glass-strong {
-  background: rgba(18, 18, 26, 0.85);
+  background: rgba(25, 24, 26, 0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(250, 234, 221, 0.08);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #7b2ff7 0%, #a855f7 50%, #00d4ff 100%);
+  background: linear-gradient(135deg, #F29CB7 0%, #DDAAFF 50%, #FBCF4F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -73,15 +77,43 @@ body {
 
 /* Glow effects */
 .glow-purple {
-  box-shadow: 0 0 40px rgba(123, 47, 247, 0.3);
+  box-shadow: 0 0 40px rgba(82, 42, 111, 0.35);
 }
 
 .text-glow {
-  text-shadow: 0 0 30px rgba(123, 47, 247, 0.5);
+  text-shadow: 0 0 30px rgba(82, 42, 111, 0.5);
 }
 
 /* Selection */
 ::selection {
-  background: rgba(123, 47, 247, 0.4);
+  background: rgba(242, 156, 183, 0.35);
   color: white;
 }
+
+/* Infinite Marquee Scroll */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 45s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 45s linear infinite;
+}
+

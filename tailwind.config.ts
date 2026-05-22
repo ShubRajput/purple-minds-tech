@@ -9,13 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#7B2FF7',
-        'primary-dark': '#5a1fc9',
-        'neon-blue': '#00d4ff',
-        'neon-violet': '#a855f7',
-        'dark-bg': '#0a0a0f',
-        'dark-surface': '#12121a',
-        'dark-card': '#1a1a24',
+        primary: '#522A6F',
+        'primary-dark': '#371C4B',
+        'neon-blue': '#DDAAFF',
+        'neon-violet': '#F29CB7',
+        'dark-bg': '#222023',
+        'dark-surface': '#19181A',
+        'dark-card': '#2D2A2E',
+        'accent-yellow': '#FBCF4F',
+        'light-accent': '#FAEADD',
       },
       fontFamily: {
         sans: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
@@ -24,13 +26,13 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-premium':
-          'linear-gradient(135deg, #7B2FF7 0%, #a855f7 50%, #00d4ff 100%)',
+          'linear-gradient(135deg, #522A6F 0%, #F29CB7 50%, #FBCF4F 100%)',
         'gradient-glow':
-          'radial-gradient(ellipse at center, rgba(123, 47, 247, 0.15) 0%, transparent 70%)',
+          'radial-gradient(ellipse at center, rgba(82, 42, 111, 0.15) 0%, transparent 70%)',
       },
       boxShadow: {
-        glow: '0 0 40px rgba(123, 47, 247, 0.3)',
-        'glow-sm': '0 0 20px rgba(123, 47, 247, 0.2)',
+        glow: '0 0 40px rgba(82, 42, 111, 0.3)',
+        'glow-sm': '0 0 20px rgba(82, 42, 111, 0.2)',
         'glass': '0 8px 32px rgba(0, 0, 0, 0.3)',
       },
       animation: {
